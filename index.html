@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="border-b border-slate-700">
+      <div class="flex container mx-auto px-5 py-4 md:px-4 items-center">
+        <a
+          href="#"
+          class="me-auto text-4xl first-letter:text-fuchsia-500 first-letter:uppercase first-letter:font-thin"
+        >
+          logo
+        </a>
+        <nav class="flex items-center gap-3">
+          <div>
+            <i
+              class="ri-moon-line text-2xl cursor-pointer hover:text-fuchsia-400"
+              id="theme-btn"
+            ></i>
+          </div>
+          <div class="flex items-center gap-2">
+            <h2 class="text-sm md:text-xl font-normal pe-2 md:pe-0">
+              MdSaiful170
+            </h2>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ///section start  -->
+
+    <section class="container px-3 mx-auto mt-5">
+      <div
+        class="grid grid-cols-12 place-content-center mx-auto container gap-5"
+      >
+        <div class="imabox col-span-12 md:col-span-7">
+          <div class="milestone">
+            <img
+              src="./images/kv.png"
+              class="milseStoneImage max-w-full h-auto object-cover rounded-md transition-opacity duration-500 ease-linear"
+              alt=""
+            />
+            <h1 class="taitle font-bolder text-xl py-4">
+              hello this milsetone
+            </h1>
+            <p class="description text-base">milestone title</p>
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-5">
+          <!-- data min list -->
+          <div
+            class="milesontMainBOx bg-slate-300 dark:bg-gray-900 border border-slate-900 rounded-md overflow-auto max-h-[450px]"
+          >
+            <div class="milsesonte p-3 m-3 border-b border-slate-700 text-base">
+              <div class="flex">
+                <div class="w-5">
+                  <input
+                    type="checkbox"
+                    class="mr-[5px] align-middle"
+                    name=""
+                    id=""
+                  />
+                </div>
+                <p>
+                  milsetone 1
+                  <span><i class="ri-arrow-down-s-line"></i></span>
+                </p>
+              </div>
+
+              <div class="overflow-hidden max-h-0">
+                <div class="border-b border-slate-700 p-3 m-3 text-base">
+                  <p>milse sonte one</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- data nodelist -->
+          <div
+            class="nodeList mt-10 bg-slate-300 dark:bg-gray-900 border border-slate-900 overflow-auto rounded-md max-h-[400px]"
+          >
+            <p class="m-5">Your Complate mileStone</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+
+    <script>
+      const html = document.querySelector("html");
+      const themeBtn = document.getElementById("theme-btn");
+      let currentMode = localStorage.getItem("mode");
+      if (currentMode === "dark") {
+        darkMode();
+      } else {
+        lightMode();
+      }
+      themeBtn.addEventListener("click", (e) => {
+        if (currentMode === "dark") {
+          lightMode();
+          currentMode = "light";
+        } else {
+          darkMode();
+          currentMode = "dark";
+        }
+        localStorage.setItem("mode", currentMode);
+      });
+      function darkMode() {
+        html.classList.add("dark");
+        themeBtn.classList.replace("ri-moon-line", "ri-sun-line");
+      }
+      function lightMode() {
+        html.classList.remove("dark");
+        themeBtn.classList.replace("ri-sun-line", "ri-moon-line");
+      }
+    </script>
+  </body>
+</html>
